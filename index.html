@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tran Dinh Tuan Khai - Software Engineer designing containment-first AI platforms, agentic software delivery workflows, and regulated financial backend systems.">
+<title>Tran Dinh Tuan Khai</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tuankhaiit.github.io/">
+<meta property="og:title" content="Tran Dinh Tuan Khai - AI Platform &amp; Distributed Systems">
+<meta property="og:description" content="Nearly a decade building regulated financial backends and mobile systems - now architecting isolated agent harnesses, MCP guardrails, and spec-driven AI delivery.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --band: #F5F6F8;
+  --ink: #0C0D10;
+  --ink-2: #4A505C;
+  --ink-muted: #525866;
+  --line: #E6E8EC;
+  --line-strong: #C9CED6;
+  --cobalt: #0052FF;
+  --vermilion: #FF3D00;
+  --display: "Plus Jakarta Sans", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Liberation Sans", sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-style: normal !important;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+.mono-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Gallery Header */
+.topbar {
+  height: 68px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.98);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(8px);
+}
+
+.topbar-inner {
+  max-width: 1180px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.wordmark {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.topnav a {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  transition: color 140ms ease;
+}
+
+.topnav a:hover {
+  color: var(--ink);
+}
+
+.header-cta {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.header-cta:hover {
+  color: var(--cobalt);
+  border-color: var(--cobalt);
+}
+
+/* Staggered Hero Motion */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-hero {
+  opacity: 0;
+  animation: riseIn 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.delay-1 { animation-delay: 40ms; }
+.delay-2 { animation-delay: 120ms; }
+.delay-3 { animation-delay: 200ms; }
+.delay-4 { animation-delay: 280ms; }
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-waiting {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* Hero Stage */
+.hero-stage {
+  padding: 56px 0 72px;
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 36px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-copy {
+  grid-column: span 7;
+}
+
+.hero-visual {
+  grid-column: span 5;
+}
+
+.identity-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin: 0 0 22px;
+}
+
+.identity-line strong {
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.identity-line .id-sep {
+  color: var(--line-strong);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--cobalt);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-size: clamp(42px, 5vw, 66px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+.hero-title .headline-mid {
+  color: #717886;
+  font-weight: 500;
+}
+
+.hero-title .accent-word {
+  color: var(--cobalt);
+}
+
+.hero-title .dot-accent {
+  color: var(--vermilion);
+}
+
+.hero-sub {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--ink-2);
+  max-width: 52ch;
+}
+
+.hero-focus-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 11px 0;
+  margin-bottom: 28px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hero-focus-strip .strip-sep {
+  color: var(--line-strong);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.btn-solid {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 13px 22px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.btn-solid:hover {
+  background: var(--cobalt);
+  border-color: var(--cobalt);
+  color: var(--bg);
+}
+
+.btn-ghost {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  padding: 13px 20px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+  color: var(--cobalt);
+}
+
+/* Interactive Containment Field Canvas Frame */
+.field-shell {
+  border: 1px solid var(--ink);
+  background: var(--bg);
+}
+
+.field-topbar {
+  height: 34px;
+  padding: 0 14px;
+  background: var(--ink);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.field-topbar-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-live-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--vermilion);
+  display: inline-block;
+}
+
+.field-topbar-right {
+  color: #B4BAC5;
+}
+
+.canvas-stage {
+  position: relative;
+  width: 100%;
+  height: 368px;
+  background: #FCFDFF;
+  overflow: hidden;
+}
+
+#field-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+.field-controls {
+  border-top: 1px solid var(--line);
+  background: var(--band);
+  padding: 12px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mode-tabs {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.mode-btn {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 6px 11px;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.mode-btn:hover {
+  border-color: var(--ink);
+}
+
+.mode-btn[aria-selected="true"] {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+.field-caption {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+/* Band 01: Editorial Manifesto Split */
+.band-philosophy {
+  background: var(--band);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 88px 0;
+  scroll-margin-top: 68px;
+}
+
+.split-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+.col-5 { grid-column: span 5; }
+.col-7 { grid-column: span 7; }
+.col-6 { grid-column: span 6; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 14px;
+}
+
+.manifesto-heading {
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: clamp(30px, 3.3vw, 42px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.manifesto-sub {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+
+.stance-list {
+  border-top: 1px solid #D8DCE3;
+}
+
+.stance-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid #D8DCE3;
+}
+
+.stance-idx {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cobalt);
+  padding-top: 3px;
+}
+
+.stance-title {
+  margin: 0 0 4px;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.stance-copy {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+
+/* Band 02: Interactive Architectural Plates */
+.band-systems {
+  padding: 92px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 68px;
+}
+
+.band-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.plate-nav {
+  border-top: 1px solid var(--line);
+}
+
+.plate-trigger {
+  appearance: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid transparent;
+  background: transparent;
+  padding: 20px 14px 20px 16px;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.plate-trigger:hover {
+  background: var(--band);
+}
+
+.plate-trigger[aria-selected="true"] {
+  border-left-color: var(--cobalt);
+  background: var(--band);
+}
+
+.plate-num {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+.plate-trigger[aria-selected="true"] .plate-num {
+  color: var(--cobalt);
+}
+
+.plate-label {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.plate-arrow {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink-muted);
+  opacity: 0;
+  transition: opacity 140ms ease;
+}
+
+.plate-trigger[aria-selected="true"] .plate-arrow {
+  opacity: 1;
+  color: var(--cobalt);
+}
+
+/* Curated Plate Frame */
+.plate-frame {
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  padding: 32px 34px;
+}
+
+.plate-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.emblem-stage {
+  padding: 26px 0 18px;
+}
+
+.emblem-slot[hidden] {
+  display: none;
+}
+
+.diagram-wrap {
+  width: 100%;
+  overflow-x: auto;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.diagram-wrap svg {
+  display: block;
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+}
+
+.plate-title {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.4vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.plate-body {
+  margin: 0 0 26px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+
+.plate-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  gap: 12px;
+}
+
+.pillar-cell {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink);
+}
+
+/* Band 03: Horizontal Architectural Trajectory */
+.band-trajectory {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 68px;
+}
+
+.traj-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.traj-col {
+  padding: 26px 20px 26px 0;
+  border-top: 2px solid transparent;
+}
+
+.traj-col + .traj-col {
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+.traj-col.is-peak {
+  border-top-color: var(--cobalt);
+}
+
+.traj-period {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.traj-col.is-peak .traj-period {
+  color: var(--cobalt);
+}
+
+.traj-role {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.traj-desc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.foundation-line {
+  padding-top: 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+/* Band 04: Minimal Closing Contact */
+.band-contact {
+  padding: 88px 0 96px;
+  scroll-margin-top: 68px;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.closing-headline {
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.closing-note {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--ink-muted);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .hero-grid,
+  .split-12 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .hero-copy,
+  .hero-visual,
+  .col-5,
+  .col-7 {
+    grid-column: auto;
+  }
+  .hero-stage {
+    min-height: auto;
+    padding: 40px 0 56px;
+  }
+  .canvas-stage {
+    height: 300px;
+  }
+  .traj-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .traj-col + .traj-col {
+    border-left: none;
+    padding-left: 0;
+  }
+  .traj-col:nth-child(even) {
+    padding-left: 20px;
+    border-left: 1px solid var(--line);
+  }
+  .traj-col:nth-child(n+3) {
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 680px) {
+  .wrap,
+  .topbar-inner {
+    padding: 0 18px;
+  }
+  .hero-title {
+    font-size: clamp(36px, 9.2vw, 48px);
+  }
+  .topnav {
+    display: none;
+  }
+  .band-philosophy,
+  .band-systems,
+  .band-trajectory,
+  .band-contact {
+    padding: 56px 0;
+  }
+  .plate-frame {
+    padding: 22px 18px;
+  }
+  .plate-pillars {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .traj-grid {
+    grid-template-columns: 1fr;
+  }
+  .traj-col:nth-child(even) {
+    padding-left: 0;
+    border-left: none;
+  }
+  .traj-col + .traj-col {
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-hero,
+  .reveal,
+  .reveal.is-waiting {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 16mm;
+  }
+  .topbar,
+  .field-controls,
+  .plate-nav,
+  .header-cta {
+    display: none !important;
+  }
+  .hero-stage {
+    min-height: auto;
+    padding: 16px 0 24px;
+  }
+  .band-philosophy,
+  .band-systems,
+  .band-trajectory,
+  .band-contact {
+    padding: 24px 0;
+    break-inside: avoid;
+  }
+  .diagram-wrap {
+    overflow-x: visible;
+  }
+  .diagram-wrap svg,
+  svg {
+    min-width: 0 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="#top">TRAN DINH TUAN KHAI</a>
+    <nav class="topnav" aria-label="Primary navigation">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#systems">Systems</a>
+      <a href="#trajectory">Trajectory</a>
+    </nav>
+    <a class="header-cta" href="#contact">Say hello</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO STAGE -->
+  <section class="hero-stage" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="identity-line reveal-hero delay-1"><span class="status-dot" aria-hidden="true"></span><strong>Tran Dinh Tuan Khai</strong><span class="id-sep" aria-hidden="true">//</span><span>AI Platform &amp; Distributed Systems</span></p>
+          <h1 class="hero-title reveal-hero delay-2">Making AI agents<br><span class="headline-mid">safe enough for</span><br><span class="accent-word">production</span><span class="dot-accent">.</span></h1>
+          <p class="hero-sub reveal-hero delay-3">Nearly a decade building regulated financial backends and mobile apps - now architecting isolated agent harnesses, MCP guardrails, and spec-driven AI delivery.</p>
+          <div class="hero-focus-strip reveal-hero delay-3">
+            <span>AI Platforms &amp; Sandboxes</span>
+            <span class="strip-sep" aria-hidden="true">/</span>
+            <span>Agentic SDLC</span>
+            <span class="strip-sep" aria-hidden="true">/</span>
+            <span>Distributed Java &amp; Cloud</span>
+          </div>
+          <div class="hero-actions reveal-hero delay-4">
+            <a class="btn-solid" href="#systems">Explore Selected Systems</a>
+            <button type="button" class="btn-ghost" id="btn-copy-hero" data-email="tuankhai0811@gmail.com">tuankhai0811@gmail.com</button>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-hero delay-3">
+          <div class="field-shell">
+            <div class="field-topbar">
+              <span class="field-topbar-left"><span class="field-live-dot" aria-hidden="true"></span>INTERACTIVE FIELD</span>
+              <span class="field-topbar-right">MOVE CURSOR OR SWITCH MODE</span>
+            </div>
+            <div class="canvas-stage">
+              <canvas id="field-canvas" aria-label="Interactive generative architectural simulation"></canvas>
+            </div>
+            <div class="field-controls">
+              <div class="mode-tabs" role="tablist" aria-label="Simulation modes">
+                <button type="button" class="mode-btn" role="tab" aria-selected="true" data-mode="contain">01 CONTAIN</button>
+                <button type="button" class="mode-btn" role="tab" aria-selected="false" data-mode="govern">02 GOVERN</button>
+                <button type="button" class="mode-btn" role="tab" aria-selected="false" data-mode="route">03 ROUTE</button>
+              </div>
+              <p class="field-caption" id="field-caption" aria-live="polite">Sandbox boundaries isolate autonomy inside hard perimeters.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 01: EDITORIAL MANIFESTO -->
+  <section class="band-philosophy" id="philosophy">
+    <div class="wrap">
+      <div class="split-12">
+        <div class="col-5 reveal">
+          <p class="eyebrow">01 / PHILOSOPHY</p>
+          <h2 class="manifesto-heading">Prompting is not architecture.</h2>
+          <p class="manifesto-sub">Production engineering taught me to trust explicit boundaries over good intentions. When autonomy enters sensitive environments, infrastructure enforces the rules.</p>
+        </div>
+        <div class="col-7 reveal">
+          <div class="stance-list">
+            <div class="stance-item">
+              <span class="stance-idx mono-num">01</span>
+              <div>
+                <h3 class="stance-title">Containment lives in infrastructure.</h3>
+                <p class="stance-copy">Sandboxes, network boundaries, and credential isolation outlast any system prompt.</p>
+              </div>
+            </div>
+            <div class="stance-item">
+              <span class="stance-idx mono-num">02</span>
+              <div>
+                <h3 class="stance-title">Delivery requires structure.</h3>
+                <p class="stance-copy">Specs, phased verification, adversarial review, and circuit breakers turn chat into engineering.</p>
+              </div>
+            </div>
+            <div class="stance-item">
+              <span class="stance-idx mono-num">03</span>
+              <div>
+                <h3 class="stance-title">Production rigor transfers directly.</h3>
+                <p class="stance-copy">Dual-datacenter resilience, observability, and zero-trust thinking govern both core backends and AI harnesses.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 02: INTERACTIVE ARCHITECTURAL PLATES -->
+  <section class="band-systems" id="systems">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="eyebrow" style="margin: 0;">02 / SELECTED SYSTEMS</p>
+        <span class="eyebrow" style="margin: 0;">Select a plate</span>
+      </div>
+
+      <div class="split-12">
+        <div class="col-5">
+          <div class="plate-nav" role="tablist" aria-label="Selected system architecture plates">
+            <button type="button" class="plate-trigger" role="tab" aria-selected="true" data-plate="01">
+              <span class="plate-num mono-num">01</span>
+              <span class="plate-label">Bounded Agent Harnesses</span>
+              <span class="plate-arrow" aria-hidden="true">-&gt;</span>
+            </button>
+            <button type="button" class="plate-trigger" role="tab" aria-selected="false" data-plate="02">
+              <span class="plate-num mono-num">02</span>
+              <span class="plate-label">Enterprise Tooling Fabric</span>
+              <span class="plate-arrow" aria-hidden="true">-&gt;</span>
+            </button>
+            <button type="button" class="plate-trigger" role="tab" aria-selected="false" data-plate="03">
+              <span class="plate-num mono-num">03</span>
+              <span class="plate-label">Spec-Driven Agentic SDLC</span>
+              <span class="plate-arrow" aria-hidden="true">-&gt;</span>
+            </button>
+            <button type="button" class="plate-trigger" role="tab" aria-selected="false" data-plate="04">
+              <span class="plate-num mono-num">04</span>
+              <span class="plate-label">Distributed Financial Core</span>
+              <span class="plate-arrow" aria-hidden="true">-&gt;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-7">
+          <article class="plate-frame" aria-live="polite">
+            <div class="plate-meta">
+              <span id="plate-id">PLATE 01</span>
+              <span id="plate-domain">AI PLATFORM &amp; ISOLATION</span>
+            </div>
+
+            <div class="emblem-stage">
+              <div class="diagram-wrap">
+                <div class="emblem-slot" id="emb-01">
+                  <svg width="260" height="110" viewBox="0 0 260 110" role="img" aria-labelledby="e1-t e1-d">
+                    <title id="e1-t">Containment Emblem</title>
+                    <desc id="e1-d">Concentric architectural boundary enclosing autonomous runtime core with boundary intercept signal.</desc>
+                    <g class="edges">
+                      <path d="M 24 55 L 68 55" fill="none" stroke="#C9CED6" stroke-width="1.2"/>
+                      <path d="M 192 55 L 236 55" fill="none" stroke="#C9CED6" stroke-width="1.2"/>
+                    </g>
+                    <g class="nodes">
+                      <rect x="68" y="15" width="124" height="80" fill="none" stroke="#0C0D10" stroke-width="1.5"/>
+                      <rect x="88" y="29" width="84" height="52" fill="#F5F6F8" stroke="#C9CED6" stroke-width="1"/>
+                      <circle cx="130" cy="55" r="13" fill="#0052FF"/>
+                      <circle cx="192" cy="35" r="5" fill="#FF3D00"/>
+                    </g>
+                  </svg>
+                </div>
+
+                <div class="emblem-slot" id="emb-02" hidden>
+                  <svg width="260" height="110" viewBox="0 0 260 110" role="img" aria-labelledby="e2-t e2-d">
+                    <title id="e2-t">Governance Gate Emblem</title>
+                    <desc id="e2-d">Central gate separating unrestricted read channels from locked state mutation requests.</desc>
+                    <g class="edges">
+                      <path d="M 24 36 L 236 36" fill="none" stroke="#0052FF" stroke-width="1.6"/>
+                      <path d="M 24 55 L 236 55" fill="none" stroke="#0052FF" stroke-width="1.6"/>
+                      <path d="M 24 76 L 116 76" fill="none" stroke="#FF3D00" stroke-width="1.6"/>
+                    </g>
+                    <g class="nodes">
+                      <rect x="128" y="14" width="4" height="82" fill="#0C0D10"/>
+                      <circle cx="118" cy="76" r="5" fill="#FF3D00"/>
+                      <circle cx="204" cy="36" r="4" fill="#0052FF"/>
+                      <circle cx="204" cy="55" r="4" fill="#0052FF"/>
+                    </g>
+                  </svg>
+                </div>
+
+                <div class="emblem-slot" id="emb-03" hidden>
+                  <svg width="260" height="110" viewBox="0 0 260 110" role="img" aria-labelledby="e3-t e3-d">
+                    <title id="e3-t">Parallel Routing Emblem</title>
+                    <desc id="e3-d">Task stream branching into isolated lanes and frontier escalation before converging at verification.</desc>
+                    <g class="edges">
+                      <path d="M 42 55 L 82 55 L 82 28 L 178 28 L 178 55 L 218 55" fill="none" stroke="#0052FF" stroke-width="1.6"/>
+                      <path d="M 42 55 L 218 55" fill="none" stroke="#0C0D10" stroke-width="1.4"/>
+                      <path d="M 82 55 L 82 82 L 178 82 L 178 55" fill="none" stroke="#C9CED6" stroke-width="1.4"/>
+                    </g>
+                    <g class="nodes">
+                      <rect x="26" y="47" width="16" height="16" fill="#0C0D10"/>
+                      <rect x="120" y="22" width="20" height="12" fill="#0052FF"/>
+                      <rect x="120" y="76" width="20" height="12" fill="#FFFFFF" stroke="#0C0D10" stroke-width="1.2"/>
+                      <circle cx="222" cy="55" r="10" fill="none" stroke="#0C0D10" stroke-width="1.8"/>
+                      <circle cx="222" cy="55" r="4" fill="#0052FF"/>
+                    </g>
+                  </svg>
+                </div>
+
+                <div class="emblem-slot" id="emb-04" hidden>
+                  <svg width="260" height="110" viewBox="0 0 260 110" role="img" aria-labelledby="e4-t e4-d">
+                    <title id="e4-t">Dual-DC Systems Emblem</title>
+                    <desc id="e4-d">Twin enterprise pillars bridged for active parity and anchored on a zero-trust base layer.</desc>
+                    <g class="edges">
+                      <path d="M 110 44 L 150 44" fill="none" stroke="#0052FF" stroke-width="1.6"/>
+                      <path d="M 82 72 L 82 88" fill="none" stroke="#0C0D10" stroke-width="1.4"/>
+                      <path d="M 178 72 L 178 88" fill="none" stroke="#0C0D10" stroke-width="1.4"/>
+                    </g>
+                    <g class="nodes">
+                      <rect x="54" y="16" width="56" height="56" fill="#F5F6F8" stroke="#0C0D10" stroke-width="1.5"/>
+                      <rect x="150" y="16" width="56" height="56" fill="#F5F6F8" stroke="#0052FF" stroke-width="1.5"/>
+                      <rect x="24" y="88" width="212" height="8" fill="#0C0D10"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="plate-title" id="plate-title">Bounded Agent Harnesses</h3>
+            <p class="plate-body" id="plate-body">Containerized execution harnesses wrapping Claude Code, Copilot CLI, and Antigravity CLI beneath a shared safety surface. Network containment, secret exclusion, and deterministic policy gates let autonomous workflows run cleanly on sensitive codebases.</p>
+            <div class="plate-pillars" id="plate-pillars">
+              <span class="pillar-cell">Multi-CLI Parity</span>
+              <span class="pillar-cell">Network Containment</span>
+              <span class="pillar-cell">Credential Isolation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 03: TRAJECTORY -->
+  <section class="band-trajectory" id="trajectory">
+    <div class="wrap reveal">
+      <div class="band-head">
+        <p class="eyebrow" style="margin: 0;">03 / TRAJECTORY</p>
+        <span class="eyebrow" style="margin: 0;">NEARLY A DECADE IN FINTECH</span>
+      </div>
+
+      <div class="traj-grid">
+        <div class="traj-col">
+          <span class="traj-period mono-num">2017 - 2019</span>
+          <h3 class="traj-role">Mobile &amp; POS</h3>
+          <p class="traj-desc">Consumer mobile apps and tablet point-of-sale software delivered across domestic and US retail markets.</p>
+        </div>
+        <div class="traj-col">
+          <span class="traj-period mono-num">2019 - 2023</span>
+          <h3 class="traj-role">Financial Mobile</h3>
+          <p class="traj-desc">Core loan-origination Android engineering with biometric eKYC, real-time risk flows, and Clean Architecture.</p>
+        </div>
+        <div class="traj-col">
+          <span class="traj-period mono-num">2023 - Now</span>
+          <h3 class="traj-role">Distributed Core</h3>
+          <p class="traj-desc">Commercial back-office and real-time enterprise backends, dual-datacenter Kubernetes GitOps, zero-trust networking, and PDPL.</p>
+        </div>
+        <div class="traj-col is-peak">
+          <span class="traj-period mono-num">2025 - Now</span>
+          <h3 class="traj-role">AI-Native Platforms</h3>
+          <p class="traj-desc">Isolated coding-agent sandboxes, guardrail MCP tooling, spec-driven SDLC loops, context engineering, and squad adoption.</p>
+        </div>
+      </div>
+
+      <div class="foundation-line">FOUNDATION  //  Physics &amp; Computer Science - University of Science, VNU-HCM (2013 - 2017)</div>
+    </div>
+  </section>
+
+  <!-- BAND 04: CLOSING -->
+  <section class="band-contact" id="contact">
+    <div class="wrap reveal">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">04 / CONNECT</p>
+          <h2 class="closing-headline">Let's talk systems.</h2>
+          <p class="closing-note">Ho Chi Minh City, Vietnam - Detailed resume available on request.</p>
+        </div>
+        <div class="hero-actions">
+          <button type="button" class="btn-solid" id="btn-copy-footer" data-email="tuankhai0811@gmail.com">Copy tuankhai0811@gmail.com</button>
+          <a class="btn-ghost" href="https://www.linkedin.com/in/tuankhaiit" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  /* 1. Progressive Scroll Reveal */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    reveals.forEach(function (el) { el.classList.add('is-waiting'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('is-waiting');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  /* 2. Interactive Kinetic Containment Canvas */
+  var canvas = document.getElementById('field-canvas');
+  var captionEl = document.getElementById('field-caption');
+  var modeButtons = Array.prototype.slice.call(document.querySelectorAll('.mode-btn'));
+  var currentMode = 'contain';
+  var captions = {
+    contain: 'Sandbox boundaries isolate autonomy inside hard perimeters.',
+    govern: 'Deterministic checkpoints separate safe reads from gated mutations.',
+    route: 'Parallel execution lanes converge cleanly on verification.'
+  };
+
+  if (canvas && canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    var width = 560;
+    var height = 390;
+    var pointer = { x: -999, y: -999, active: false };
+    var pulses = [];
+    var particles = [];
+
+    function initParticles() {
+      particles = [];
+      for (var i = 0; i < 28; i++) {
+        var ang = (i / 28) * Math.PI * 2;
+        var rad = 36 + ((i * 29) % 88);
+        particles.push({
+          x: width * 0.5 + Math.cos(ang) * rad,
+          y: height * 0.5 + Math.sin(ang) * rad,
+          vx: Math.cos(ang + 1.2) * (0.65 + (i % 4) * 0.18),
+          vy: Math.sin(ang + 1.2) * (0.65 + (i % 3) * 0.18),
+          risk: i % 6 === 0,
+          lane: i % 3,
+          t: (i / 28),
+          pauseTimer: 0
+        });
+      }
+    }
+
+    function resizeCanvas() {
+      var rect = canvas.parentElement.getBoundingClientRect();
+      width = Math.max(280, Math.round(rect.width));
+      height = Math.max(260, Math.round(rect.height));
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!particles.length) initParticles();
+    }
+
+    canvas.addEventListener('pointermove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      pointer.x = e.clientX - r.left;
+      pointer.y = e.clientY - r.top;
+      pointer.active = true;
+    });
+
+    canvas.addEventListener('pointerleave', function () {
+      pointer.active = false;
+    });
+
+    function drawMetaTag(text) {
+      ctx.font = '500 10.5px "JetBrains Mono", Menlo, Consolas, monospace';
+      ctx.fillStyle = '#525866';
+      ctx.fillText(text, 16, 22);
+    }
+
+    function renderContain(step) {
+      var cx = width * 0.5;
+      var cy = height * 0.52;
+      var outerR = Math.min(width, height) * 0.37;
+      var innerR = outerR * 0.56;
+
+      /* Orthogonal subtle axes */
+      ctx.strokeStyle = '#ECEEF2';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - outerR - 22, cy);
+      ctx.lineTo(cx + outerR + 22, cy);
+      ctx.moveTo(cx, cy - outerR - 22);
+      ctx.lineTo(cx, cy + outerR + 22);
+      ctx.stroke();
+
+      /* Inner ring */
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = '#C9CED6';
+      ctx.beginPath();
+      ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      /* Outer hard containment ring */
+      ctx.strokeStyle = '#0C0D10';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+      ctx.stroke();
+
+      /* Boundary intercept flashes */
+      for (var pIdx = pulses.length - 1; pIdx >= 0; pIdx--) {
+        var pl = pulses[pIdx];
+        ctx.strokeStyle = 'rgba(255, 61, 0, ' + pl.alpha.toFixed(2) + ')';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, pl.angle - 0.18, pl.angle + 0.18);
+        ctx.stroke();
+        pl.alpha -= 0.035;
+        if (pl.alpha <= 0) pulses.splice(pIdx, 1);
+      }
+
+      /* Particles constrained inside outerR */
+      for (var i = 0; i < particles.length; i++) {
+        var pt = particles[i];
+        if (step) {
+          if (pointer.active) {
+            var pdx = pt.x - pointer.x;
+            var pdy = pt.y - pointer.y;
+            var pdist = Math.hypot(pdx, pdy);
+            if (pdist > 1 && pdist < 85) {
+              pt.vx += (pdx / pdist) * 0.08;
+              pt.vy += (pdy / pdist) * 0.08;
+            }
+          }
+          pt.x += pt.vx;
+          pt.y += pt.vy;
+          var dx = pt.x - cx;
+          var dy = pt.y - cy;
+          var dist = Math.hypot(dx, dy) || 1;
+          var maxDist = outerR - 6;
+          if (dist >= maxDist) {
+            var nx = dx / dist;
+            var ny = dy / dist;
+            pt.x = cx + nx * maxDist;
+            pt.y = cy + ny * maxDist;
+            var dot = pt.vx * nx + pt.vy * ny;
+            pt.vx -= 2 * dot * nx;
+            pt.vy -= 2 * dot * ny;
+            if (pt.risk && pulses.length < 8) {
+              pulses.push({ angle: Math.atan2(dy, dx), alpha: 0.95 });
+            }
+          }
+          var spd = Math.hypot(pt.vx, pt.vy);
+          if (spd > 1.7) {
+            pt.vx = (pt.vx / spd) * 1.4;
+            pt.vy = (pt.vy / spd) * 1.4;
+          }
+        }
+      }
+
+      /* Connect adjacent contained nodes */
+      ctx.lineWidth = 1;
+      for (var a = 0; a < particles.length; a++) {
+        for (var b = a + 1; b < particles.length; b++) {
+          var d = Math.hypot(particles[a].x - particles[b].x, particles[a].y - particles[b].y);
+          if (d < 56) {
+            ctx.strokeStyle = 'rgba(0, 82, 255, ' + ((1 - d / 56) * 0.22).toFixed(2) + ')';
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      particles.forEach(function (pt) {
+        ctx.fillStyle = pt.risk ? '#FF3D00' : '#0052FF';
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.risk ? 3.8 : 2.8, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      drawMetaTag('PERIMETER // HARD CONTAINMENT ACTIVE');
+    }
+
+    function renderGovern(step) {
+      var gateX = width * 0.54;
+      var topY = 48;
+      var botY = height - 36;
+
+      /* Subtle horizontal transport channels */
+      ctx.strokeStyle = '#ECEEF2';
+      ctx.lineWidth = 1;
+      for (var row = 0; row < 5; row++) {
+        var ry = topY + 26 + row * ((botY - topY - 52) / 4);
+        ctx.beginPath();
+        ctx.moveTo(26, ry);
+        ctx.lineTo(width - 26, ry);
+        ctx.stroke();
+      }
+
+      /* Deterministic vertical checkpoint gate */
+      ctx.strokeStyle = '#0C0D10';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(gateX, topY);
+      ctx.lineTo(gateX, botY);
+      ctx.stroke();
+
+      ctx.font = '500 10px "JetBrains Mono", Menlo, Consolas, monospace';
+      ctx.fillStyle = '#0C0D10';
+      ctx.fillText('POLICY GATE', gateX + 8, topY + 10);
+
+      particles.forEach(function (pt, idx) {
+        var laneY = topY + 26 + (idx % 5) * ((botY - topY - 52) / 4);
+        if (step) {
+          if (pt.risk && pt.x >= gateX - 24 && pt.x < gateX - 8) {
+            pt.pauseTimer += 1;
+            if (pt.pauseTimer > 75) {
+              pt.x = 28;
+              pt.pauseTimer = 0;
+            }
+          } else {
+            pt.x += pt.risk ? 1.15 : 1.55;
+            if (pt.x > width - 26) pt.x = 28;
+          }
+        } else {
+          pt.x = pt.risk ? (gateX - 18) : (40 + ((idx * 37) % (width - 80)));
+        }
+
+        if (pt.risk && pt.x >= gateX - 26 && pt.x <= gateX) {
+          ctx.strokeStyle = 'rgba(255, 61, 0, 0.35)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.arc(pt.x, laneY, 8, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.fillStyle = '#FF3D00';
+        } else {
+          ctx.fillStyle = pt.risk ? '#FF3D00' : '#0052FF';
+        }
+        ctx.beginPath();
+        ctx.arc(pt.x, laneY, 3.4, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      drawMetaTag('GATEWAY // READ-ONLY PASS VS DUAL-LOCK');
+    }
+
+    function renderRoute(step) {
+      var leftX = width * 0.14;
+      var rightX = width * 0.86;
+      var midY = height * 0.56;
+      var span = rightX - leftX;
+      var laneOffsets = [-64, 0, 56];
+
+      /* Left intake + Right verify rings */
+      ctx.strokeStyle = '#0C0D10';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.arc(leftX, midY, 10, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(rightX, midY, 14, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.fillStyle = '#0052FF';
+      ctx.beginPath();
+      ctx.arc(rightX, midY, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      /* Routing rails */
+      laneOffsets.forEach(function (off, i) {
+        ctx.strokeStyle = i === 0 ? '#0052FF' : '#D0D5DD';
+        ctx.lineWidth = i === 0 ? 1.5 : 1.1;
+        ctx.beginPath();
+        ctx.moveTo(leftX + 10, midY);
+        ctx.bezierCurveTo(
+          leftX + span * 0.28, midY + off,
+          leftX + span * 0.72, midY + off,
+          rightX - 14, midY
+        );
+        ctx.stroke();
+      });
+
+      particles.forEach(function (pt, idx) {
+        var laneIdx = idx % 3;
+        var off = laneOffsets[laneIdx];
+        if (step) {
+          pt.t += laneIdx === 0 ? 0.0042 : 0.0068;
+          if (pt.t > 1) pt.t = 0;
+        }
+        var u = pt.t;
+        var x = leftX + 10 + u * (span - 24);
+        var curveFactor = 4 * u * (1 - u);
+        var y = midY + off * curveFactor;
+
+        ctx.fillStyle = laneIdx === 0 ? '#0052FF' : '#0C0D10';
+        ctx.beginPath();
+        ctx.arc(x, y, laneIdx === 0 ? 3.8 : 2.8, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      drawMetaTag('DISPATCH // ADAPTIVE TIERING & VERIFICATION');
+    }
+
+    function frame(animate) {
+      ctx.clearRect(0, 0, width, height);
+      if (currentMode === 'contain') renderContain(animate);
+      else if (currentMode === 'govern') renderGovern(animate);
+      else renderRoute(animate);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', function () {
+      resizeCanvas();
+      initParticles();
+      if (reduceMotion) frame(false);
+    });
+
+    if (reduceMotion) {
+      frame(false);
+    } else {
+      (function loop() {
+        frame(true);
+        requestAnimationFrame(loop);
+      })();
+    }
+
+    modeButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        currentMode = btn.getAttribute('data-mode');
+        modeButtons.forEach(function (b) {
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+        if (captionEl && captions[currentMode]) {
+          captionEl.textContent = captions[currentMode];
+        }
+        if (reduceMotion) frame(false);
+      });
+    });
+  }
+
+  /* 3. Interactive Selected Systems Plates */
+  var plates = {
+    '01': {
+      id: 'PLATE 01',
+      domain: 'AI PLATFORM & ISOLATION',
+      title: 'Bounded Agent Harnesses',
+      body: 'Containerized execution harnesses wrapping Claude Code, Copilot CLI, and Antigravity CLI beneath a shared safety surface. Network containment, secret exclusion, and deterministic policy gates let autonomous workflows run cleanly on sensitive codebases.',
+      pillars: ['Multi-CLI Parity', 'Network Containment', 'Credential Isolation']
+    },
+    '02': {
+      id: 'PLATE 02',
+      domain: 'GOVERNANCE & INTEGRATION',
+      title: 'Enterprise Tooling Fabric',
+      body: 'Custom Model Context Protocol servers linking AI agents with Kubernetes clusters, observability stacks, relational databases, and delivery trackers. Server-side read-only SQL checks, dual-lock confirmations, and audit logs separate diagnostics from mutation.',
+      pillars: ['MCP Gateway Layer', 'Read-Only SQL Guard', 'Dual-Lock Approval']
+    },
+    '03': {
+      id: 'PLATE 03',
+      domain: 'WORKFLOWS & CONTEXT',
+      title: 'Spec-Driven Agentic SDLC',
+      body: 'Structured software lifecycle moving from specifications and pre-mortem plans through parallel isolated workspaces, adversarial review, QA, and post-deploy checks. Adaptive model routing pairs with progressive skills and prompt audits adopted across squads.',
+      pillars: ['Isolated Worktrees', 'Adaptive Model Routing', 'Context Engineering']
+    },
+    '04': {
+      id: 'PLATE 04',
+      domain: 'DISTRIBUTED CORE & CLOUD',
+      title: 'Distributed Financial Core',
+      body: 'Commercial back-office and real-time enterprise services modernized across modern Java, Spring Boot, event streaming, and workflow engines. Built over dual-datacenter Kubernetes GitOps, canary delivery, centralized SSO, Cilium zero-trust, and PDPL privacy.',
+      pillars: ['Dual-DC Resilience', 'Zero-Trust & PDPL', 'High-Scale Backends']
+    }
+  };
+
+  var plateTriggers = Array.prototype.slice.call(document.querySelectorAll('.plate-trigger'));
+  var plateIdEl = document.getElementById('plate-id');
+  var plateDomainEl = document.getElementById('plate-domain');
+  var plateTitleEl = document.getElementById('plate-title');
+  var plateBodyEl = document.getElementById('plate-body');
+  var platePillarsEl = document.getElementById('plate-pillars');
+
+  function activatePlate(key) {
+    var p = plates[key];
+    if (!p) return;
+    plateTriggers.forEach(function (t) {
+      t.setAttribute('aria-selected', t.getAttribute('data-plate') === key ? 'true' : 'false');
+    });
+    ['01', '02', '03', '04'].forEach(function (id) {
+      var emb = document.getElementById('emb-' + id);
+      if (emb) emb.hidden = id !== key;
+    });
+    plateIdEl.textContent = p.id;
+    plateDomainEl.textContent = p.domain;
+    plateTitleEl.textContent = p.title;
+    plateBodyEl.textContent = p.body;
+    platePillarsEl.innerHTML = '';
+    p.pillars.forEach(function (label) {
+      var span = document.createElement('span');
+      span.className = 'pillar-cell';
+      span.textContent = label;
+      platePillarsEl.appendChild(span);
+    });
+  }
+
+  plateTriggers.forEach(function (trigger, idx) {
+    trigger.addEventListener('click', function () {
+      activatePlate(trigger.getAttribute('data-plate'));
+    });
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        var next = plateTriggers[(idx + 1) % plateTriggers.length];
+        next.focus();
+        activatePlate(next.getAttribute('data-plate'));
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        var prev = plateTriggers[(idx + plateTriggers.length - 1) % plateTriggers.length];
+        prev.focus();
+        activatePlate(prev.getAttribute('data-plate'));
+      }
+    });
+  });
+
+  /* 4. Copy Email Buttons */
+  function attachCopy(id, defaultLabel) {
+    var btn = document.getElementById(id);
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var email = btn.getAttribute('data-email');
+      function onCopied() {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = defaultLabel; }, 2200);
+      }
+      function fallbackCopy() {
+        var ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          if (document.execCommand('copy')) {
+            onCopied();
+          } else {
+            btn.textContent = email;
+          }
+        } catch (err) {
+          btn.textContent = email;
+        }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(onCopied, fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    });
+  }
+  attachCopy('btn-copy-hero', 'tuankhai0811@gmail.com');
+  attachCopy('btn-copy-footer', 'Copy tuankhai0811@gmail.com');
+})();
+</script>
+</body>
+</html>
